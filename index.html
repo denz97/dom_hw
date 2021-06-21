@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<table id="tbl"></table>
+<script>
+    let tbl = document.getElementById('tbl');
+    for(let i = 1; i < 10; i++){
+      let newRow = document.createElement('tr');
+      document.body.insertBefore(newRow, tbl);
+      for (let j = 1; j < 10; j++){
+        let newTd = document.createElement('td');
+        newTd.id = 'td';
+        newTd.innerText = String(i * j);
+        document.body.insertBefore(newTd, newRow)
+        newTd.style.cssText = `
+        border: 1px solid;
+        padding: 3px;
+        text-align: center;`
+      }
+    }
+    document.addEventListener("mouseover", function( event ) {
+      event.target.style.color = "orange";
+      setTimeout(function() {
+        event.target.style.color = "";
+      }, 500);
+    });
+  </script>
+</body>
+
+</html>
